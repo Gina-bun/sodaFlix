@@ -60,24 +60,25 @@ export function HeroSection() {
   return (
     <>
       <div
-        className="hero-section text-white flex flex-col pl-5 justify-center pt-50 gap-2 sm:pt-50"
+        className="hero-section text-white flex flex-col pl-5 sm:pl-8 md:pl-15 justify-center pt-50 gap-.5 sm:gap-2 sm:pt-50"
         style={{
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url(https://image.tmdb.org/t/p/original${currentMovie.backdrop_path})`,
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url(https://image.tmdb.org/t/p/original${currentMovie.backdrop_path})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           height: "65vh",
         }}
       >
-        <p className="text-white font-bold text-2xl sm:text-3xl">{currentMovie.title}</p>
+        <p className="text-white font-bold text-2xl sm:text-4xl md:text-5xl">{currentMovie.title || currentMovie.name}</p>
+        <p className="date max-sm:pl-2 sm:text-xl">{`${new Date(currentMovie.release_date || currentMovie.first_air_date).getFullYear()}`}</p>
 
-        <div className="flex gap-1 items-center">
-          <p>{currentMovie.popularity}</p> <Diamond size={10}/>
-          <p>{currentMovie.media_type}</p> <Diamond size={10}/>
-          <p>{getGenreNames(currentMovie.genre_ids)}</p>
+        <div className="flex gap-1 items-center sm:text-sm text-amber-500">
+          <p>{currentMovie.popularity}</p> <Diamond style={{fill:"white"}} size={5}/>
+          <p>{currentMovie.media_type}</p> <Diamond style={{fill:"white"}} size={5}/>
+          <p>{getGenreNames(currentMovie.genre_ids) || 'N/A'}</p>
         </div>
-        <p className="hidden sm:block w-[50%] h-[8vw] text-sm">{movieOverview}</p>
+        <p className="hidden sm:block w-[50%] sm:w-[55%] md:w-[45%] h-[8vw] text-sm sm:text-[15px] md:text-lg">{movieOverview}</p>
 
-        <div className="buttons flex gap-3">
+        <div className="buttons flex gap-3 max-md:mt-2 md:-mt-17">
           <ButtonRegular text="Watch Now" />
           <ButtonRegular text="Add to Watchlist" />
         </div>
