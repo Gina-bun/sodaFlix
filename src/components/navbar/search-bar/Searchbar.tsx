@@ -56,7 +56,7 @@ export function Searchbar() {
       <div ref={closeSearchPopup} style={{ position: "relative" }}>
         <div
           id="search-container"
-          className="flex border rounded-md max-sm:w-70 p-1 max-sm:self-center"
+          className="flex border rounded-md w-70 bg-amber-50 gap-2 md:w-100 md:px-2 md:py-1.5 p-1 max-sm:self-center"
         >
           <Search size={20} className="m-auto" />
           <input
@@ -71,15 +71,15 @@ export function Searchbar() {
         {isOpen && results.length > 0 && (
           <div
             style={{ position: "absolute" }}
-            className="search-dropdown bg-amber-50 mt-2 p-2 max-sm:w-70 max-md:w-60 rounded-md"
+            className="search-dropdown bg-amber-50 mt-2 w-70 md:w-100 rounded-md"
           >
             {results.map((movie) => (
               <div
                 key={movie.id}
                 onClick={() => handleSelect(movie)}
-                className="search-result-item"
+                className="search-result-item not-last:border-b p-1 first:rounded-t-md last:rounded-b-md border-gray-300 hover:bg-amber-100"
               >
-                <p>
+                <p className="font-medium">
                   {movie.title || movie.name} {movie.genre}
                 </p>
                 <p>

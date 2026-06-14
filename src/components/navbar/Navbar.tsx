@@ -117,7 +117,7 @@ export function Navbar() {
 
       <div className="desktopNav">
         <div className="desktop-nav-row flex items-center justify-between gap-8 p-4">
-          <div className="desktop-nav-left flex items-center gap-4">
+          <div className="desktop-nav-left flex justify-between items-center gap-4 md:w-[60vw]">
             <Link to="/" className="brand-link">
               <h1 className="font-bold text-2xl">sodaFlix</h1>
             </Link>
