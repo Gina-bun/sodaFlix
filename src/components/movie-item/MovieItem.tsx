@@ -46,7 +46,7 @@ export function MovieItem({
     : 'N/A'
 
   const content = (
-    <div className="movie-item flex flex-col shrink-0 border rounded-sm h-67 bg-amber-200 w-50">
+    <div className="movie-item flex flex-col shrink-0 border rounded-sm h-57 sm:h-67 bg-amber-200 w-50">
       <div
         className="movie-poster h-40 flex justify-end p-1 bg-gray-200"
         style={{
@@ -67,8 +67,8 @@ export function MovieItem({
         />
       </div>
       <div className="movie-info h-fit px-2 pt-1 ">
-        <p className="movie-title text-wrap font-medium">{title.length > 25 ? title.slice(0,25) + "..." : title }</p>
-        <div className="flex items-center gap-3">
+        <p className="movie-title text-wrap font-medium">{title.length > 20 ? title.slice(0,20) + "..." : title }</p>
+        <div className="flex items-center gap-3 text-sm">
           <p className="genre">{genre}</p>
           <Diamond size={6} style={{fill:"black"}}/>
           <p className="mediaType">{mediaType}</p>
