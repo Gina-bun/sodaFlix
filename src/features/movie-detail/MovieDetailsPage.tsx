@@ -5,7 +5,7 @@ import { MovieItem } from "../../components/movie-item/MovieItem";
 
 export function MovieDetailsPage() {
   const { movieId } = useParams<{ movieId?: string }>();
-  const [movieItem, setMovieItem] = useState(null);
+  const [movieItem, setMovieItem] = useState<any>(null);
   const location = window.location.pathname
   const isTV = location.includes("/tv/")
 
@@ -84,7 +84,7 @@ export function MovieDetailsPage() {
         <div className="genres px-3 pb-3">
           <h2 className="text-lg font-medium">Genres:</h2>
           <div className="flex flex-wrap gap-1">
-            {allGenres.map((genre) => (
+            {allGenres.map((genre: any) => (
               <div key={genre.id} className="bg-amber-200 flex  p-1 rounded-md">
                 {genre.name}
               </div>
@@ -95,7 +95,7 @@ export function MovieDetailsPage() {
         {/* LANGUAGES */}
         <div className="languages flex px-3 pb-3 gap-1.5">
           <h3 className="font-medium">Languages: </h3>
-          {languages.map((lang) => (
+          {languages.map((lang: any) => (
             <p key={lang.iso_639_1}>{lang.english_name}</p>
           ))}
         </div>
@@ -121,7 +121,7 @@ export function MovieDetailsPage() {
             className="flex gap-3 overflow-x-auto"
             style={{ scrollbarWidth: "none" }}
           >
-            {cast.map((castMember) => (
+            {cast.map((castMember: any) => (
               <div key={castMember.cast_id} className="w-fit text-center">
                 <div
                   className="w-25 h-25 rounded-full bg-gray-300"
@@ -146,7 +146,7 @@ export function MovieDetailsPage() {
           className="flex gap-3 overflow-x-auto"
           style={{scrollbarWidth: "none"}}
           >
-            {productionCompanies.map((company) => (
+            {productionCompanies.map((company: any) => (
               <div key={company.id}>
                 {/* company logo */}
                 <div
@@ -175,7 +175,7 @@ export function MovieDetailsPage() {
             className="flex gap-3 overflow-x-auto"
             style={{ scrollbarWidth: "none" }}
           >
-            {similarShows.map((tvshow) => (
+            {similarShows.map((tvshow: any) => (
               <div key={tvshow.id}>
                 <MovieItem
                   movieId={tvshow.id}

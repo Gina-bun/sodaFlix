@@ -61,7 +61,7 @@ export function MovieCategory({
           {/* also Array.from({ length: 6 }) creates [undefined, undefined, undefined, undefined, undefined, undefined] */}
           {loading
             ? Array.from({ length: 6 }).map((_, i) => <SkeletonCard key={i} />)
-            : validMovies.map((movie) => (
+            : validMovies.map((movie: any) => (
                 <MovieItem
                   movieId={movie.id}
                   key={movie.id}
