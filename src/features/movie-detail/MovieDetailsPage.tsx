@@ -59,13 +59,13 @@ export function MovieDetailsPage() {
         <div
           className="back-drop h-90 text-gray-200 text-center flex flex-col justify-end"
           style={{
-            backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)),  url(https://image.tmdb.org/t/p/original${movieItem.backdrop_path})`,
+            backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)),  url(https://image.tmdb.org/t/p/original${movieItem.backdrop_path})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
         >
-          <h1 className="font-bold text-xl">{title}</h1>
-          <div className="backdrop-deets flex gap-2 justify-center mb-15 font-light">
+          <h1 className="font-bold text-xl px-5">{title}</h1>
+          <div className="backdrop-deets text-amber-500 flex gap-2 justify-center mb-15 font-light">
             <p>{movieYear}</p>
             <p>{genre}</p>
             <p>{movieItem.popularity}</p>
@@ -75,14 +75,14 @@ export function MovieDetailsPage() {
 
         {/* OVERVIEW section */}
 
-        <div className="overview px-3 pt-5 rounded-tl-3xl rounded-tr-3xl -mt-5 bg-white">
-          <h2>Overview</h2>
+        <div className="overview px-3 pt-5 pb-3 rounded-tl-3xl rounded-tr-3xl -mt-5 bg-white">
+          <h2 className="text-lg font-medium">Overview</h2>
           <p>{movieItem.overview}</p>
         </div>
 
         {/* GENRES */}
-        <div className="genres px-3">
-          <h1>Genres:</h1>
+        <div className="genres px-3 pb-3">
+          <h2 className="text-lg font-medium">Genres:</h2>
           <div className="flex flex-wrap gap-1">
             {allGenres.map((genre) => (
               <div key={genre.id} className="bg-amber-200 flex  p-1 rounded-md">
@@ -93,8 +93,8 @@ export function MovieDetailsPage() {
         </div>
 
         {/* LANGUAGES */}
-        <div className="languages flex px-3 gap-1.5">
-          <h2>Languages: </h2>
+        <div className="languages flex px-3 pb-3 gap-1.5">
+          <h3 className="font-medium">Languages: </h3>
           {languages.map((lang) => (
             <p key={lang.iso_639_1}>{lang.english_name}</p>
           ))}
@@ -102,8 +102,8 @@ export function MovieDetailsPage() {
 
         {/* TRAILER */}
         {trailer && (
-          <div className="trailer px-3">
-            <h2>Trailer</h2>
+          <div className="trailer px-3 pb-3">
+            <h2 className="text-lg font-medium">Trailer</h2>
             <iframe
               src={`https://www.youtube.com/embed/${trailer.key}`}
               frameBorder="0"
@@ -115,8 +115,8 @@ export function MovieDetailsPage() {
         )}
 
         {/* CAST section */}
-        <div className="cast px-3">
-          <h2>Cast</h2>
+        <div className="cast px-3 pb-3">
+          <h2 className="text-lg font-medium">Cast</h2>
           <div
             className="flex gap-3 overflow-x-auto"
             style={{ scrollbarWidth: "none" }}
@@ -140,8 +140,8 @@ export function MovieDetailsPage() {
         </div>
 
         {/* PROD companies */}
-        <div className="prod-companies px-3">
-          <h2>Production companies</h2>
+        <div className="prod-companies px-3 pb-3">
+          <h2 className="text-lg font-medium ">Production companies</h2>
           <div 
           className="flex gap-3 overflow-x-auto"
           style={{scrollbarWidth: "none"}}
@@ -170,7 +170,7 @@ export function MovieDetailsPage() {
 
         {/* SIMILAR shows */}
         <div className="similar pb-5 px-3">
-          <h2>Similar shows</h2>
+          <h2 className="text-lg font-medium">Similar shows</h2>
           <div
             className="flex gap-3 overflow-x-auto"
             style={{ scrollbarWidth: "none" }}

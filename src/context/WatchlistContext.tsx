@@ -1,11 +1,22 @@
-import { createContext, useContext, useEffect } from 'react'
-import { useState } from 'react'
-import type { Movie } from '../types/movie'
+import { createContext, useContext, useEffect, useState, type ReactNode } from 'react';
+import type { Movie } from '../types/movie';
 
-export const WatchlistContext = createContext()
+interface WatchlistContextType {
+    watchlist: Movie[];
+    addToWatchlist: (movie: Movie) => void;
+    removeFromWatchlist: (movieId: number | string) => void;
+}
+
+export const WatchlistContext = createContext<WatchlistContextType>({
+    watchlist: [],
+    addToWatchlist: () => {},
+    removeFromWatchlist: () => {},
+});
 
 
-export const WatchlistProvider = ({children}) => {
+
+
+export const WatchlistProvider = ({children}: {children: ReactNode}) => {
     const [watchlist, setWatchlist] = useState<Movie[]>(() => {
          const savedMovies = localStorage.getItem("savedMovies")
          return savedMovies ? JSON.parse(savedMovies) : []
@@ -19,7 +30,7 @@ export const WatchlistProvider = ({children}) => {
       
     }
 
-    const removeFromWatchlist = (movieId: number) => {
+    const removeFromWatchlist = (movieId: number | string) => {
         setWatchlist(prev => prev.filter(movie =>  movie.movieId !== movieId))
     }
 

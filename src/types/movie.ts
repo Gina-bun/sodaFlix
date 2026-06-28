@@ -1,11 +1,9 @@
 export interface Movie {
-    movieId: number
+    movieId: number | string
+    movieUrl: string
     title: string
-    type: "movie" | "tv" | "series" | "documentary" 
-    genre: string
-    releaseDate: string
-    rating: number
-    description: string
-
+    releaseDate: string | number
+    genre?: string
+    mediaType?: string
 }
 
